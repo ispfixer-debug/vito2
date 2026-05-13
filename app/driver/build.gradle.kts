@@ -16,6 +16,19 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.10"
     }
+    
+    signingConfigs {
+        create("release") {
+            storeFile = rootProject.file("release.keystore")
+            storePassword = "vitoRelease2024"
+            keyAlias = "vito-release"
+            keyPassword = "vitoRelease2024"
+        }
+    }
+    
+    buildTypes.getByName("release") {
+        signingConfig = signingConfigs.getByName("release")
+    }
 }
 dependencies {
     implementation("androidx.core:core-ktx:1.12.0")

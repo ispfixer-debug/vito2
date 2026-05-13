@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
 }
+
 android {
     namespace = "com.vito.app"
     compileSdk = 35
@@ -21,6 +22,19 @@ android {
         release {
             isMinifyEnabled = false
         }
+    }
+    
+    signingConfigs {
+        create("release") {
+            storeFile = rootProject.file("release.keystore")
+            storePassword = "vitoRelease2024"
+            keyAlias = "vito-release"
+            keyPassword = "vitoRelease2024"
+        }
+    }
+    
+    buildTypes.getByName("release") {
+        signingConfig = signingConfigs.getByName("release")
     }
 }
 dependencies {
