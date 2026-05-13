@@ -1,0 +1,18 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users_v2/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+    match /qr_tokens/{token} {
+      allow read, write: if request.auth != null;
+    }
+    match /rides/{rideId} {
+      allow read: if request.auth != null && (resource.data.clientId == request.auth.uid || resource.data.driverId == request.auth.uid);
+      allow write: if request.auth != null;
+    }
+    match /chats/{chatId}/messages/{messageId} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
