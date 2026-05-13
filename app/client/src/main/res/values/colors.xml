@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="vito_orange">#FF6B35</color>
+    <color name="vito_blue">#004E89</color>
+    <color name="vito_white">#FFFFFF</color>
+    <color name="vito_black">#000000</color>
+</resources>
