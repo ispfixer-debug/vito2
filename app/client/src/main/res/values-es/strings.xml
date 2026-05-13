@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Vito</string>
+    
+    <!-- Navigation -->
+    <string name="nav_ride">Viaje</string>
+    <string name="nav_send">Enviar</string>
+    <string name="nav_mart">Tienda</string>
+    <string name="nav_activity">Actividad</string>
+    <string name="nav_profile">Perfil</string>
+    
+    <!-- Login Screen -->
+    <string name="welcome_title">Bienvenido a Vito</string>
+    <string name="welcome_subtitle">Inicia sesión para continuar</string>
+    <string name="username_label">Usuario</string>
+    <string name="password_label">Contraseña</string>
+    <string name="sign_in">Iniciar Sesión</string>
+    <string name="login_error">Credenciales inválidas. Intenta de nuevo.</string>
+    <string name="logging_in">Iniciando sesión…</string>
+    
+    <!-- VitoCar Screen -->
+    <string name="pickup_label">Recoger</string>
+    <string name="dropoff_label">Destino</string>
+    <string name="current_location">Ubicación actual</string>
+    <string name="where_to">¿A dónde?</string>
+    <string name="add_stops">Añadir paradas</string>
+    <string name="vehicle_standard">Estándar</string>
+    <string name="vehicle_premium">Premium</string>
+    <string name="vehicle_bike">Bicicleta</string>
+    <string name="vehicle_auto">Auto</string>
+    <string name="vehicle_van">VAN</string>
+    <string name="estimated_fare">Tarifa estimada: %1$s</string>
+    <string name="ride_now">Pedir Viaje</string>
+    <string name="schedule_ride">Programar</string>
+    <string name="schedule_date">Seleccionar Fecha</string>
+    <string name="schedule_time">Seleccionar Hora</string>
+    
+    <!-- Booking Confirmation -->
+    <string name="driver_on_the_way">Conductor en camino</string>
+    <string name="arriving_in">Llega en %1$d min</string>
+    <string name="message_driver">Mensaje</string>
+    <string name="cancel_ride">Cancelar</string>
+    <string name="share_trip">Compartir</string>
+    <string name="trip_link_copied">Enlace copiado</string>
+    <string name="sos">SOS</string>
+    <string name="eta_countdown">%1$d</string>
+    
+    <!-- Trip Tracking -->
+    <string name="driver_arriving">El conductor llega</string>
+    <string name="pickup_passenger">Recoger pasajero</string>
+    <string name="in_transit">En camino</string>
+    <string name="arrived_destination">Llegó al destino</string>
+    <string name="trip_completed">Viaje completado</string>
+    <string name="trip_cancelled">Viaje cancelado</string>
+    
+    <!-- Rating -->
+    <string name="rate_your_trip">Califica tu viaje</string>
+    <string name="add_tip">Añadir propina</string>
+    <string name="tip_custom">Propina personalizada</string>
+    <string name="submit_rating">Enviar</string>
+    <string name="no_tip">Sin propina</string>
+    
+    <!-- VitoSend Screen -->
+    <string name="package_size">Tamaño</string>
+    <string name="size_small">Pequeño</string>
+    <string name="size_medium">Mediano</string>
+    <string name="size_large">Grande</string>
+    <string name="weight_kg">Peso (kg)</string>
+    <string name="fragile">Frágil</string>
+    <string name="description">Descripción</string>
+    <string name="attach_photo">Adjuntar foto</string>
+    <string name="recipient">Destinatario</string>
+    <string name="in_app_user">Usuario Vito</string>
+    <string name="open_delivery">Entrega abierta</string>
+    <string name="include_insurance">Incluir seguro</string>
+    <string name="send_package">Enviar Paquete</string>
+    <string name="package_confirmed">Paquete enviado</string>
+    <string name="package_delivered">Paquete entregado</string>
+    <string name="capture_signature">Capturar firma</string>
+    <string name="take_proof_photo">Tomar foto</string>
+    <string name="mark_delivered">Marcar entregado</string>
+    
+    <!-- VitoMart Screen -->
+    <string name="mart_title">VitoMart</string>
+    <string name="category_drinks">Bebidas</string>
+    <string name="category_snacks">Botanas</string>
+    <string name="add_to_cart">Añadir al carrito</string>
+    <string name="checkout">Pagar</string>
+    <string name="cart">Carrito</string>
+    <string name="place_order">Ordenar</string>
+    <string name="order_placed">Orden placed</string>
+    <string name="preparing">Preparando</string>
+    <string name="driver_pickup">Recoger pedido</string>
+    <string name="delivering">En camino</string>
+    <string name="delivered">Entregado</string>
+    <string name="delivery_fee">Costo de envío</string>
+    <string name="total">Total</string>
+    <string name="select_address">Seleccionar dirección</string>
+    <string name="select_payment">Método de pago</string>
+    <string name="cash">Efectivo</string>
+    <string name="card">Tarjeta</string>
+    <string name="google_pay">Google Pay</string>
+    <string name="quantity">Cant: %1$d</string>
+    <string name="out_of_stock">Agotado</string>
+    
+    <!-- Activity Screen -->
+    <string name="activity_title">Actividad</string>
+    <string name="tab_all">Todo</string>
+    <string name="tab_rides">Viajes</string>
+    <string name="tab_sends">Envíos</string>
+    <string name="tab_mart">Pedidos</string>
+    <string name="no_activity">Sin actividad</string>
+    
+    <!-- Profile Screen -->
+    <string name="profile_title">Perfil</string>
+    <string name="wallet">Billetera</string>
+    <string name="wallet_balance">Saldo: %1$s</string>
+    <string name="top_up">Recargar</string>
+    <string name="preferred_payment">Pago preferido</string>
+    <string name="saved_cards">Tarjetas guardadas</string>
+    <string name="delete_card">Eliminar</string>
+    <string name="language">Idioma</string>
+    <string name="english">English</string>
+    <string name="spanish">Español</string>
+    <string name="app_lock">Bloqueo de app</string>
+    <string name="app_lock_enabled">Bloqueo activado</string>
+    <string name="link_new_device">Vincular dispositivo</string>
+    <string name="device_linked">Dispositivo vinculado</string>
+    <string name="delete_account">Eliminar cuenta</string>
+    <string name="confirm_delete">¿Estás seguro de eliminar tu cuenta?</string>
+    <string name="cancel">Cancelar</string>
+    <string name="confirm">Confirmar</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="wallet_top_up">Recargar billtera</string>
+    <string name="enter_amount">Ingresa cantidad</string>
+    
+    <!-- Chat -->
+    <string name="type_message">Escribe un mensaje…</string>
+    <string name="send">Enviar</string>
+    <string name="attach_image">Adjuntar imagen</string>
+    <string name="no_messages">Sin mensajes</string>
+    <string name="start_conversation">Inicia la conversación</string>
+    
+    <!-- Driver -->
+    <string name="driver_app">Vito Conductor</string>
+    <string name="online">En línea</string>
+    <string name="offline">Desconectado</string>
+    <string name="go_online">Conectar</string>
+    <string name="go_offline">Desconectar</string>
+    <string name="new_job_request">Nueva solicitud</string>
+    <string name="accept">Aceptar</string>
+    <string name="decline">Rechazar</string>
+    <string name="arrived">Llegué</string>
+    <string name="start_trip">Iniciar viaje</string>
+    <string name="complete_trip">Completar</string>
+    <string name="cash_collected">Efectivo recibido</string>
+    <string name="change_returned">Cambio: %1$s</string>
+    <string name="earnings">Ganancias</string>
+    <string name="today">Hoy</string>
+    <string name="this_week">Esta semana</string>
+    <string name="this_month">Este mes</string>
+    <string name="request_payout">Solicitar pago</string>
+    
+    <!-- Driver Onboarding -->
+    <string name="scan_qr">Escanear QR</string>
+    <string name="upload_document">Subir documento</string>
+    <string name="driving_license">Licencia de conducir</string>
+    <string name="vehicle_registration">Matícula</string>
+    <string name="insurance">Seguro</string>
+    <string name="vehicle_info">Info del vehículo</string>
+    <string name="vehicle_type">Tipo</string>
+    <string name="vehicle_model">Modelo</string>
+    <string name="vehicle_plate">Placas</string>
+    <string name="vehicle_color">Color</string>
+    <string name="bank_details">Datos bancarios</string>
+    <string name="account_number">Número de cuenta</string>
+    <string name="routing_number">CLABE</string>
+    <string name="verification_pending">Verificación pendiente</string>
+    <string name="verification_message">Revisando tus documentos. Tarda 24–48 horas.</string>
+    
+    <!-- Admin -->
+    <string name="admin_app">Vito Admin</string>
+    <string name="dashboard">Panel</string>
+    <string name="qr_management">Gestión QR</string>
+    <string name="users">Usuarios</string>
+    <string name="documents">Documentos</string>
+    <string name="live_monitor">Monitoreo</string>
+    <string name="mart_management">Tienda</string>
+    <string name="finance">Finanzas</string>
+    <string name="audit_log">Bitácora</string>
+    <string name="chat_monitor">Chats</string>
+    <string name="generate_qr">Generar QR</string>
+    <string name="qr_role">Rol</string>
+    <string name="expiry_date">Fecha expiry</string>
+    <string name="generate">Generar</string>
+    <string name="revoke">Revocar</string>
+    <string name="suspend_user">Suspender</string>
+    <string name="delete_user">Eliminar</string>
+    <string name="approve">Aprobar</string>
+    <string name="reject">Rechazar</string>
+    <string name="total_users">Usuarios totales</string>
+    <string name="active_drivers">Conductores activos</string>
+    <string name="rides_today">Viajes hoy</string>
+    <string name="revenue_today">Ingresos hoy</string>
+    
+    <!-- Promos -->
+    <string name="apply_promo">Aplicar</string>
+    <string name="promo_code">Código promo</string>
+    <string name="promo_applied">¡Promo aplicado!</string>
+    <string name="invalid_promo">Código inválido</string>
+    
+    <!-- Empty States -->
+    <string name="no_rides">Sin viajes</string>
+    <string name="no_packages">Sin paquetes</string>
+    <string name="no_orders">Sin pedidos</string>
+    <string name="no_drivers">Sin conductores</string>
+    
+    <!-- Loading -->
+    <string name="loading">Cargando…</string>
+    <string name="processing">Procesando…</string>
+    
+    <!-- Errors -->
+    <string name="error_network">Error de red. Intenta de nuevo.</string>
+    <string name="error_general">Algo salió mal. Intenta de nuevo.</string>
+    <string name="error_location">No se pudo obtener ubicación</string>
+    <string name="permission_location">Se necesita permiso de ubicación</string>
+    <string name="permission_camera">Se necesita permiso de cámara</string>
+</resources>

@@ -4,4 +4,4 @@ dependencyResolutionManagement {
     repositories { google(); mavenCentral() }
 }
 rootProject.name = "Vito"
-include(":app:client"); include(":app:driver"); include(":app:admin"); include(":core")
+include(":app:client"); include(":app:driver"); include(":app:admin")
