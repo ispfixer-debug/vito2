@@ -7,7 +7,10 @@ import com.vito.app.data.repository.*
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
-class AuthViewModel(private val authRepo: AuthRepository = MockAuthRepository()) : ViewModel() {
+class AuthViewModel(
+    private val authRepo: AuthRepository = MockAuthRepository(),
+    private val walletRepo: WalletRepository = MockWalletRepository()
+) : ViewModel() {
     private val _user = MutableStateFlow<User?>(null)
     val user: StateFlow<User?> = _user.asStateFlow()
     
@@ -17,9 +20,15 @@ class AuthViewModel(private val authRepo: AuthRepository = MockAuthRepository())
     private val _error = MutableStateFlow<String?>(null)
     val error: StateFlow<String?> = _error.asStateFlow()
     
+    private val _walletBalance = MutableStateFlow(0)
+    val walletBalance: StateFlow<Int> = _walletBalance.asStateFlow()
+    
     init {
         viewModelScope.launch {
-            authRepo.getCurrentUser().collect { _user.value = it }
+            authRepo.getCurrentUser().collect { user ->
+                _user.value = user
+                user?.let { _walletBalance.value = walletRepo.getBalance(it.id) }
+            }
         }
     }
     
@@ -27,14 +36,32 @@ class AuthViewModel(private val authRepo: AuthRepository = MockAuthRepository())
         _isLoading.value = true
         _error.value = null
         return authRepo.login(username, password).fold(
-            onSuccess = { _user.value = it; _isLoading.value = false; true },
-            onFailure = { _error.value = it.message; _isLoading.value = false; false }
+            onSuccess = { user ->
+                _user.value = user
+                _walletBalance.value = walletRepo.getBalance(user.id)
+                _isLoading.value = false
+                true
+            },
+            onFailure = { err ->
+                _error.value = err.message
+                _isLoading.value = false
+                false
+            }
         )
     }
     
     suspend fun logout() {
         authRepo.logout()
         _user.value = null
+        _walletBalance.value = 0
+    }
+    
+    suspend fun topUpWallet(amount: Int): Boolean {
+        val uid = _user.value?.id ?: return false
+        return walletRepo.topUp(uid, amount).fold(
+            onSuccess = { _walletBalance.value = walletRepo.getBalance(uid); true },
+            onFailure = { _error.value = it.message; false }
+        )
     }
     
     fun isLoggedIn() = authRepo.isLoggedIn()

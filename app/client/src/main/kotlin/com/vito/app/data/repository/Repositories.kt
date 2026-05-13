@@ -206,6 +206,7 @@ class MockChatRepository : ChatRepository {
 
 interface ActivityRepository {
     fun getRecentActivity(userId: String): Flow<List<ActivityItem>>
+    fun getActivityByType(userId: String, type: ActivityType): Flow<List<ActivityItem>>
 }
 
 class MockActivityRepository : ActivityRepository {
@@ -217,5 +218,83 @@ class MockActivityRepository : ActivityRepository {
             ActivityItem("a4", ActivityType.RIDE, "Ride to Airport", "Cancelled", "Cancelled", System.currentTimeMillis() - 14400000, "car")
         )
         return MutableStateFlow(items)
+    }
+    
+    override fun getActivityByType(userId: String, type: ActivityType): Flow<List<ActivityItem>> {
+        val items = listOf(
+            ActivityItem("a1", ActivityType.RIDE, "Ride to Downtown", "Completed", "Completed", System.currentTimeMillis() - 3600000, "car"),
+            ActivityItem("a4", ActivityType.RIDE, "Ride to Airport", "Cancelled", "Cancelled", System.currentTimeMillis() - 14400000, "car")
+        )
+        return MutableStateFlow(items.filter { it.type == type })
+    }
+}
+
+interface WalletRepository {
+    suspend fun topUp(userId: String, amount: Int): Result<Boolean>
+    suspend fun getBalance(userId: String): Int
+    suspend fun deduct(userId: String, amount: Int): Result<Boolean>
+}
+
+class MockWalletRepository : WalletRepository {
+    private val balances = mutableMapOf("user1" to 2500)
+    
+    override suspend fun topUp(userId: String, amount: Int): Result<Boolean> {
+        delay(500)
+        val current = balances[userId] ?: 0
+        balances[userId] = current + amount
+        return Result.success(true)
+    }
+    
+    override suspend fun getBalance(userId: String): Int {
+        return balances[userId] ?: 0
+    }
+    
+    override suspend fun deduct(userId: String, amount: Int): Result<Boolean> {
+        delay(300)
+        val current = balances[userId] ?: 0
+        return if (current >= amount) {
+            balances[userId] = current - amount
+            Result.success(true)
+        } else {
+            Result.failure(Exception("Insufficient balance"))
+        }
+    }
+}
+
+interface PromoRepository {
+    suspend fun validatePromo(code: String): PromoResult?
+    fun getAvailablePromos(): Flow<List<PromoCode>>
+}
+
+data class PromoResult(
+    val code: String,
+    val discountPercent: Int,
+    val discountAmount: Int,
+    val minFare: Int
+)
+
+data class PromoCode(
+    val code: String,
+    val discountPercent: Int = 0,
+    val discountAmount: Int = 0,
+    val expiresAt: Long,
+    val isValid: Boolean = true
+)
+
+class MockPromoRepository : PromoRepository {
+    private val promos = listOf(
+        PromoCode("VITO20", discountPercent = 20, expiresAt = System.currentTimeMillis() + 86400000 * 30),
+        PromoCode("FIRST50", discountAmount = 500, expiresAt = System.currentTimeMillis() + 86400000 * 7),
+        PromoCode("FREE", discountAmount = 0, expiresAt = System.currentTimeMillis() + 86400000 * 14)
+    )
+    
+    override suspend fun validatePromo(code: String): PromoResult? {
+        delay(300)
+        val promo = promos.find { it.code == code && it.isValid && it.expiresAt > System.currentTimeMillis() }
+        return promo?.let { PromoResult(it.code, it.discountPercent, it.discountAmount, 0) }
+    }
+    
+    override fun getAvailablePromos(): Flow<List<PromoCode>> {
+        return MutableStateFlow(promos.filter { it.isValid && it.expiresAt > System.currentTimeMillis() })
     }
 }
